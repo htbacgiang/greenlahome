@@ -45,6 +45,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "greenlahome.vn",
       },
+      {
+        protocol: "https",
+        hostname: "dongphucunivi.com",
+      },
     ],
   },
 };

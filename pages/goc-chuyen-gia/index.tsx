@@ -2,7 +2,6 @@ import { useState, useMemo } from "react";
 import type { GetServerSideProps, NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import Head from "next/head";
 import DefaultLayout from "../../components/layout/DefaultLayout";
 import { formatPosts, readPostsFromDb } from "../../lib/utils";
 import { PostDetail } from "../../utils/types";
@@ -38,13 +37,10 @@ type Props = {
 };
 
 const Blogs: NextPage<Props> = ({ posts, meta }) => {
-  const postsPerPage = 20; // Hiển thị 2 bài viết trên mỗi trang
-  const [currentPage, setCurrentPage] = useState(1); // Trang hiện tại
-
-  // Tính tổng số trang
+  const postsPerPage = 9;
+  const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(posts.length / postsPerPage);
 
-  // Lấy danh sách bài viết cho trang hiện tại
   const paginatedPosts = useMemo(() => {
     const startIndex = (currentPage - 1) * postsPerPage;
     const endIndex = startIndex + postsPerPage;
@@ -58,98 +54,121 @@ const Blogs: NextPage<Props> = ({ posts, meta }) => {
       year: "numeric",
     });
 
-  // Xử lý khi nhấn nút phân trang
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
-    window.scrollTo({ top: 0, behavior: "smooth" }); // Cuộn lên đầu trang
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const getPageNumbers = () => {
+    const maxPagesToShow = 5;
+    const pageNumbers: (number | string)[] = [];
+
+    pageNumbers.push(1);
+
+    if (totalPages <= maxPagesToShow + 1) {
+      for (let i = 2; i <= totalPages; i++) {
+        pageNumbers.push(i);
+      }
+    } else {
+      let startPage = Math.max(2, currentPage - 2);
+      let endPage = Math.min(totalPages - 1, currentPage + 2);
+
+      if (currentPage <= 3) {
+        startPage = 2;
+        endPage = maxPagesToShow;
+      } else if (currentPage >= totalPages - 2) {
+        startPage = totalPages - maxPagesToShow;
+        endPage = totalPages - 1;
+      }
+
+      if (startPage > 2) {
+        pageNumbers.push("...");
+      }
+
+      for (let i = startPage; i <= endPage; i++) {
+        pageNumbers.push(i);
+      }
+
+      if (endPage < totalPages - 1) {
+        pageNumbers.push("...");
+      }
+
+      if (totalPages > 1) {
+        pageNumbers.push(totalPages);
+      }
+    }
+
+    return pageNumbers;
   };
 
   return (
     <DefaultLayout>
       <div className="relative h-[40vh] w-full">
-        {/* Background Image */}
         <Image
-          src="/images/banner5.png"
-          alt="Góc Phong Thủy - GreenLa Home"
+          src="/images/noi-that-2.jpg"
+          alt="Tin tức - Đồng phục Univi"
           layout="fill"
           objectFit="cover"
           className="opacity-70 brightness-75"
         />
-        {/* Overlay with Breadcrumb, Title and Description */}
         <div className="absolute inset-0 bg-black bg-opacity-50 flex items-end">
           <div className="p-6 md:p-10">
-            {/* Breadcrumb */}
             <nav aria-label="Breadcrumb">
               <p className="text-sm uppercase text-gray-400">
                 <Link href="/">
-                  <span className="hover:text-yellow-500 cursor-pointer">
-                    Trang chủ
-                  </span>
-                </Link>{" "}
-                / Góc Phong Thủy
+                  <span className="hover:text-yellow-500 cursor-pointer">Trang chủ</span>
+                </Link>{" "}/ Góc Chuyên Gia
               </p>
             </nav>
-            {/* Page Title */}
             <h1 className="text-3xl md:text-4xl font-bold text-white mt-2">
-              Góc Phong Thủy - GreenLa Home
+              Góc Chuyên Gia - GreenLa Home
             </h1>
-            {/* Short Description */}
             <p className="text-lg md:text-xl text-white mt-2">
-              Cập nhật các bí quyết phong thủy, xu hướng và kinh nghiệm giúp tối
-              ưu không gian sống và làm việc.
+              Chia sẻ kiến thức chuyên sâu về thiết kế, phong thủy và nội thất.
             </p>
           </div>
         </div>
       </div>
-      <div className="pb-12 bg-black">
+      <div className="pb-12 ">
         <div className="flex flex-col lg:flex-row gap-6 w-full max-w-8xl mx-auto px-4 lg:px-12">
-          {/* Left Section: List of Posts (2 per row) */}
           <div className="w-full lg:w-9/12">
             {posts.length > 0 ? (
               <div className="flex flex-col gap-6">
-                {/* Danh sách bài viết */}
-                <div className="flex flex-wrap gap-6 bg-black text-white py-8">
+                {/* Thay đổi từ đây */}
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-black py-8">
                   {paginatedPosts.map((post, index) => (
-                    <div
-                      key={index}
-                      className="w-full md:w-[calc(50%-1.5rem)] flex flex-col gap-4"
-                    >
+                    <div key={post.slug} className="flex flex-col gap-4">
                       {post.thumbnail && (
                         <div
                           className="relative cursor-pointer rounded-lg overflow-hidden"
                           style={{ aspectRatio: "16/9" }}
                         >
-                          
-                          <Link href={`/goc-chuyen-gia/${post.slug}`} >
-                          <Image
-                            src={post.thumbnail}
-                            fill={true}
-                            priority={index < 2}
-                            className="object-cover hover:scale-105 transition-all ease duration-300"
-                            alt={post.title}
-                          />
+                          <Link href={`/bai-viet/${post.slug}`}>
+                            <Image
+                              src={post.thumbnail}
+                              fill
+                              priority={index < 3}
+                              className="object-cover hover:scale-105 transition-all ease duration-300"
+                              alt={post.title}
+                            />
                           </Link>
                         </div>
                       )}
                       <div className="flex flex-col gap-2">
                         <p className="text-sm text-orange-500 uppercase">
+
                           {formatDate(post.createdAt)} - {post.category}
                         </p>
                         <Link
-                          href={`/goc-chuyen-gia/${post.slug}`}
-                          className="text-xl md:text-2xl font-bold hover:text-green-600 text-green-500"
+                          href={`/bai-viet/${post.slug}`}
+                          className="text-base md:text-xl font-bold hover:text-green-500 text-green-600"
                           aria-label={post.title}
                         >
                           {post.title}
                         </Link>
-                        <p className="text-gray-300 text-sm md:text-base line-clamp-2">
-                          {/* Placeholder for excerpt */}
-                          {post.meta}
-
-                        </p>
                         <Link
-                          href={`/goc-chuyen-gia/${post.slug}`}
-                          className="text-sm text-gray-400 uppercase hover:text-green-500"
+                          href={`/bai-viet/${post.slug}`}
+                          className="text-sm text-gray-400 uppercase hover:text-green-600"
                         >
                           Xem thêm
                         </Link>
@@ -157,118 +176,117 @@ const Blogs: NextPage<Props> = ({ posts, meta }) => {
                     </div>
                   ))}
                 </div>
-
-                {/* Phân trang */}
                 {totalPages > 1 && (
                   <div className="flex justify-center gap-3 mt-6">
-                    {/* Nút số trang */}
-                    {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                      (page) => (
-                        <button
-                          key={page}
-                          onClick={() => handlePageChange(page)}
-                          className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium ${
-                            currentPage === page
-                              ? "bg-orange-500 text-white"
-                              : "bg-transparent text-white border border-white hover:bg-orange-500 hover:text-white"
-                          } transition-all duration-300`}
-                        >
-                          {page}
-                        </button>
-                      )
-                    )}
-                    {/* Nút Next */}
-                    {currentPage < totalPages && (
-                      <button
-                        onClick={() => handlePageChange(currentPage + 1)}
-                        className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium bg-transparent text-white border border-white hover:bg-orange-500 hover:text-white transition-all duration-300"
+                    <button
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      disabled={currentPage === 1}
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium bg-transparent text-black border border-gray-300 hover:bg-green-600 hover:text-white transition-all duration-300 disabled:opacity-50"
+                      aria-label="Go to previous page"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <svg
-                          className="w-5 h-5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </button>
-                    )}
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M15 19l-7-7 7-7"
+                        />
+                      </svg>
+                    </button>
+                    {getPageNumbers().map((page, index) => (
+                      <div key={`${page}-${index}`}>
+                        {page === "..." ? (
+                          <span className="w-10 h-10 flex items-center justify-center text-sm font-medium text-black">
+                            ...
+                          </span>
+                        ) : (
+                          <button
+                            onClick={() => handlePageChange(page as number)}
+                            className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium ${currentPage === page
+                              ? "bg-green-600 text-white"
+                              : "bg-transparent text-black border border-gray-300 hover:bg-green-600 hover:text-white"
+                              } transition-all duration-300`}
+                            aria-label={`Go to page ${page}`}
+                          >
+                            {page}
+                          </button>
+                        )}
+                      </div>
+                    ))}
+                    <button
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      disabled={currentPage === totalPages}
+                      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium bg-transparent text-black border border-gray-300 hover:bg-green-600 hover:text-white transition-all duration-300 disabled:opacity-50"
+                      aria-label="Go to next page"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M9 5l7 7-7 7"
+                        />
+                      </svg>
+                    </button>
                   </div>
                 )}
               </div>
             ) : (
               <div>
-                <p>Không có bài viết nào trong danh mục Góc chuyên gia.</p>
+                <p>Không có bài viết nào.</p>
               </div>
             )}
           </div>
-
-          {/* Right Section: Sidebar with Search and Recent Posts */}
-          <div className="w-full lg:w-3/12 flex flex-col gap-6 bg-black text-white py-8">
-            {/* Search Bar */}
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Tìm kiếm"
-                className="w-full p-3 rounded-lg bg-gray-800 text-white placeholder-gray-400 focus:outline-none"
-              />
-              <svg
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </div>
-
-            {/* Recent Posts */}
+          <div className="w-full lg:w-3/12 flex flex-col gap-6 text-green-600 py-8">
             <div className="flex flex-col gap-4">
-              <h3 className="text-lg font-semibold uppercase">Bài đăng gần đây</h3>
-              {[0, 1, 2].map(
-                (index) =>
-                  posts[index] && (
-                    <div key={index} className="flex flex-row gap-4">
-                      {posts[index]?.thumbnail && (
-                        <div
-                          className="w-3/6 relative cursor-pointer rounded-lg overflow-hidden"
-                          style={{ aspectRatio: "1/1", maxHeight: "100px" }}
-                        >
-                          <Image
-                            src={posts[index].thumbnail}
-                            fill={true}
-                            className="object-cover hover:scale-105 transition-all ease duration-300"
-                            alt={posts[index].title}
-                          />
-                        </div>
-                      )}
-                      <div className="w-3/4 flex flex-col gap-1">
-                        <p className="text-base text-orange-500 uppercase">
-                          {formatDate(posts[index]?.createdAt)}
-                        </p>
-                        <Link
-                          href={`/goc-chuyen-gia/${posts[index]?.slug}`}
-                          className="text-base font-medium hover:text-orange-500 line-clamp-2"
-                          aria-label={posts[index]?.title}
-                        >
-                          {posts[index]?.title}
-                        </Link>
-                      </div>
+              <h3 className="text-lg font-semibold uppercase">
+                Bài viết gần đây
+              </h3>
+              {posts.slice(0, 3).map((post) => (
+                <div key={post.slug} className="flex flex-row gap-4">
+                  {post.thumbnail && (
+                    <div
+                      className="w-3/6 relative cursor-pointer rounded-lg overflow-hidden"
+                      style={{ aspectRatio: "1/1", maxHeight: "100px" }}
+                    >
+                      <Link href={`/bai-viet/${post.slug}`}>
+                        <Image
+                          src={post.thumbnail}
+                          fill={true}
+                          className="object-cover hover:scale-105 transition-all ease duration-300"
+                          alt={post.title}
+                        />
+                      </Link>
                     </div>
-                  )
-              )}
+                  )}
+                  <div className="w-3/4 flex flex-col gap-1">
+                    <p className="text-base text-black uppercase">
+                      {formatDate(post.createdAt)}
+                    </p>
+                    <Link
+                      href={`/bai-viet/${post.slug}`}
+                      className="text-base font-medium hover:text-green-500 text-green-600 line-clamp-2"
+                      aria-label={post.title}
+                    >
+                      {post.title}
+                    </Link>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -282,12 +300,10 @@ export const getServerSideProps: GetServerSideProps<{
   meta: MetaData;
 }> = async () => {
   try {
-    const limit = 5; // Tăng limit để lấy nhiều bài viết hơn (vì có phân trang)
-    const posts = await readPostsFromDb(limit, 0);
+    const posts = await readPostsFromDb(10000, 0);
     const formattedPosts: PostDetail[] = formatPosts(posts).filter(
       (post) => post.category === "Góc Chuyên Gia"
     );
-
     const meta: MetaData = {
       title: "Thiết Kế và Tư Vấn Nội Thất - Nội thất GreenLaHome",
       description:

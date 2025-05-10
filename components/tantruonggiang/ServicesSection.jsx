@@ -18,87 +18,92 @@ export default function ServicesSection() {
         {/* Grid 3 cột */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {/* Cột 1: Thiết Kế Nội Thất Chung Cư */}
-          <div className="flex flex-col items-center group">
-            <div className="relative w-full h-48 md:h-64">
-              <Image
-                src="/images/thiet-ke-noi-that-chung-cu.webp"
-                alt="Thiết Kế Nội Thất Chung Cư"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg transition-opacity duration-300 group-hover:opacity-70"
-              />
-              {/* Overlay và nút Xem chi tiết */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Link href="/thiet-ke-noi-that-chung-cu">
+          <Link href="/thiet-ke-noi-that-chung-cu">
+            <div className="flex flex-col items-center group">
+              <div className="relative w-full h-48 md:h-64">
+                <Image
+                  src="/images/thiet-ke-noi-that-chung-cu.webp"
+                  alt="Thiết Kế Nội Thất Chung Cư"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg transition-opacity duration-300 group-hover:opacity-70"
+                />
+                {/* Overlay và nút Xem chi tiết */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <button className="bg-green-400 text-white font-semibold text-sm md:text-base py-2 px-4 rounded-lg hover:bg-green-500 transition-colors duration-200">
                     Xem chi tiết
                   </button>
-                </Link>
+                </div>
               </div>
+
+              <h2 className="text-lg md:text-xl font-semibold text-green-400 mt-4 uppercase">
+                Thiết Kế Nội Thất Chung Cư
+              </h2>
+              <p className="text-gray-300 text-sm md:text-base text-center mt-2">
+                GREENLAHOME mang đến giải pháp thiết kế nội thất hiện đại, bền vững, ứng dụng công nghệ AI tiên tiến. Chúng tôi tạo nên không gian sống đậm chất cá nhân, đáp ứng nhanh chóng và phù hợp với từng khách hàng.
+              </p>
             </div>
-            <h2 className="text-lg md:text-xl font-semibold text-green-400 mt-4 uppercase">
-              Thiết Kế Nội Thất Chung Cư
-            </h2>
-            <p className="text-gray-300 text-sm md:text-base text-center mt-2">
-              GREENLAHOME mang đến giải pháp thiết kế nội thất hiện đại, bền vững, ứng dụng công nghệ AI tiên tiến. Chúng tôi tạo nên không gian sống đậm chất cá nhân, đáp ứng nhanh chóng và phù hợp với từng khách hàng.
-            </p>
-          </div>
+          </Link>
+
 
           {/* Cột 2: Thiết Kế Nội Thất Nhà Phố */}
-          <div className="flex flex-col items-center group">
-            <div className="relative w-full h-48 md:h-64">
-              <Image
-                src="/images/thi-cong-noi-that-nha-pho.webp"
-                alt="Thiết Kế Nội Thất Nhà Phố"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg transition-opacity duration-300 group-hover:opacity-70"
-              />
-              {/* Overlay và nút Xem chi tiết */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Link href="/thiet-ke-noi-that-nha-pho">
+          <Link href="/thiet-ke-noi-that-nha-pho">
+
+            <div className="flex flex-col items-center group">
+              <div className="relative w-full h-48 md:h-64">
+                <Image
+                  src="/images/thi-cong-noi-that-nha-pho.webp"
+                  alt="Thiết Kế Nội Thất Nhà Phố"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg transition-opacity duration-300 group-hover:opacity-70"
+                />
+                {/* Overlay và nút Xem chi tiết */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <button className="bg-green-400 text-white font-semibold text-sm md:text-base py-2 px-4 rounded-lg hover:bg-green-500 transition-colors duration-200">
                     Xem chi tiết
                   </button>
-                </Link>
+                </div>
               </div>
+              <h2 className="text-lg md:text-xl font-semibold text-green-400 mt-4 uppercase">
+                Thiết Kế Nội Thất Nhà Phố
+              </h2>
+              <p className="text-gray-300 text-sm md:text-base text-center mt-2">
+                GREENLAHOME cam kết mang đến sản phẩm tinh tế, bền vững với độ bền cao. Sử dụng hệ thống máy móc hiện đại và công nghệ tiên tiến, cùng đội ngũ thi công lành nghề và giám sát chuyên môn cao, tận tâm với từng dự án.
+              </p>
             </div>
-            <h2 className="text-lg md:text-xl font-semibold text-green-400 mt-4 uppercase">
-              Thiết Kế Nội Thất Nhà Phố
-            </h2>
-            <p className="text-gray-300 text-sm md:text-base text-center mt-2">
-              GREENLAHOME cam kết mang đến sản phẩm tinh tế, bền vững với độ bền cao. Sử dụng hệ thống máy móc hiện đại và công nghệ tiên tiến, cùng đội ngũ thi công lành nghề và giám sát chuyên môn cao, tận tâm với từng dự án.
-            </p>
-          </div>
+          </Link>
 
           {/* Cột 3: Thi Công Nội Thất Trọn Gói */}
-          <div className="flex flex-col items-center group">
-            <div className="relative w-full h-48 md:h-64">
-              <Image
-                src="/images/thi-cong-noi-that.webp"
-                alt="Thi Công Nội Thất Trọn Gói"
-                layout="fill"
-                objectFit="cover"
-                className="rounded-lg transition-opacity duration-300 group-hover:opacity-70"
-              />
-              {/* Overlay và nút Xem chi tiết */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <Link href="/thi-cong-noi-that-tron-goi">
+          <Link href="/thi-cong-noi-that-tron-goi">
+
+            <div className="flex flex-col items-center group">
+              <div className="relative w-full h-48 md:h-64">
+                <Image
+                  src="/images/thi-cong-noi-that.webp"
+                  alt="Thi Công Nội Thất Trọn Gói"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-lg transition-opacity duration-300 group-hover:opacity-70"
+                />
+                {/* Overlay và nút Xem chi tiết */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <button className="bg-green-400 text-white font-semibold text-sm md:text-base py-2 px-4 rounded-lg hover:bg-green-500 transition-colors duration-200">
                     Xem chi tiết
                   </button>
-                </Link>
+                </div>
               </div>
+              <h2 className="text-lg md:text-xl font-semibold text-green-400 mt-4 uppercase">
+                Thi Công Nội Thất Trọn Gói
+              </h2>
+              <p className="text-gray-300 text-sm md:text-base text-center mt-2">
+                GREENLAHOME hợp tác với các thương hiệu ván hàng đầu như An Cường, Minh Long và Vanachai (Thái Lan). Sử dụng ván gỗ MDF đạt chuẩn E0, E1, E2, đảm bảo thân thiện với môi trường và an toàn tuyệt đối cho người sử dụng.
+              </p>
             </div>
-            <h2 className="text-lg md:text-xl font-semibold text-green-400 mt-4 uppercase">
-              Thi Công Nội Thất Trọn Gói
-            </h2>
-            <p className="text-gray-300 text-sm md:text-base text-center mt-2">
-              GREENLAHOME hợp tác với các thương hiệu ván hàng đầu như An Cường, Minh Long và Vanachai (Thái Lan). Sử dụng ván gỗ MDF đạt chuẩn E0, E1, E2, đảm bảo thân thiện với môi trường và an toàn tuyệt đối cho người sử dụng.
-            </p>
-          </div>
+          </Link>
         </div>
       </div>
-    </section>
+
+    </section >
   );
 }

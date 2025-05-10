@@ -16,8 +16,8 @@ const PropertyDetail = ({ project }) => {
   });
   const [status, setStatus] = useState("");
   const [errors, setErrors] = useState({});
-  const touchStartX = useRef(null); // Track touch start position
-  const touchEndX = useRef(null); // Track touch end position
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
 
   useEffect(() => {
     if (!project?.id) {
@@ -35,7 +35,6 @@ const PropertyDetail = ({ project }) => {
 
   const images = project.images?.length > 0 ? project.images : [project.image || "/fallback-image.jpg"];
 
-  // Touch event handlers for swipe
   const handleTouchStart = (e) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -48,15 +47,14 @@ const PropertyDetail = ({ project }) => {
     if (!touchStartX.current || !touchEndX.current) return;
 
     const deltaX = touchEndX.current - touchStartX.current;
-    const swipeThreshold = 50; // Minimum swipe distance in pixels
+    const swipeThreshold = 20;
 
     if (deltaX > swipeThreshold) {
-      handlePrevImage(); // Swipe right -> previous image
+      handlePrevImage();
     } else if (deltaX < -swipeThreshold) {
-      handleNextImage(); // Swipe left -> next image
+      handleNextImage();
     }
 
-    // Reset touch coordinates
     touchStartX.current = null;
     touchEndX.current = null;
   };
@@ -125,6 +123,15 @@ const PropertyDetail = ({ project }) => {
           name="description"
           content={`Khám phá dự án ${project.title} tại ${project.location} – thi công nội thất cao cấp cho ${project.customer}.`}
         />
+        {images.map((image, index) => (
+          <link
+            key={index}
+            rel="preload"
+            href={image}
+            as="image"
+            fetchpriority="high"
+          />
+        ))}
       </Head>
       <div className="bg-black text-white min-h-screen">
         {/* Hero Section */}
@@ -133,7 +140,7 @@ const PropertyDetail = ({ project }) => {
             src={project.image || "/fallback-image.jpg"}
             alt={`Hình ảnh chính của ${project.title}`}
             layout="fill"
-            quality={100}
+            quality={75}
             objectFit="cover"
             className="opacity-70 brightness-75"
             priority
@@ -183,9 +190,10 @@ const PropertyDetail = ({ project }) => {
                 </div>
               </div>
 
-              {/* Image Gallery with Swipe Support */}
+              {/* Image Gallery with 1350:1080 Aspect Ratio */}
               <div
                 className="relative mt-4"
+                style={{ aspectRatio: "5 / 4" }} // Tỷ lệ 1350:1080
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
@@ -193,15 +201,15 @@ const PropertyDetail = ({ project }) => {
                 <Image
                   src={images[currentImage]}
                   alt={`Hình ảnh ${currentImage + 1} của ${project.title}`}
-                  width={1920}
-                  height={1080}
-                  quality={100}
-                  className="w-full md:h-[70vh] h-80 object-cover rounded-lg"
-                  loading="lazy"
+                  layout="fill"
+                  objectFit="cover"
+                  quality={75}
+                  fetchpriority="high"
+                  className="rounded-lg"
                 />
                 <button
                   onClick={handlePrevImage}
-                  className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-yellow-500 text-black p-3 rounded-full hover:bg-yellow-600 transition-colors"
+                  className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-yellow-500 text-black p-3 rounded-full hover:bg-yellow-600"
                   aria-label="Previous image"
                 >
                   <svg
@@ -216,7 +224,7 @@ const PropertyDetail = ({ project }) => {
                 </button>
                 <button
                   onClick={handleNextImage}
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-yellow-500 text-black p-3 rounded-full hover:bg-yellow-600 transition-colors"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-yellow-500 text-black p-3 rounded-full hover:bg-yellow-600"
                   aria-label="Next image"
                 >
                   <svg
@@ -239,18 +247,23 @@ const PropertyDetail = ({ project }) => {
                 </div>
               </div>
 
-              {/* Thumbnails */}
+              {/* Thumbnails with 1350:1080 Aspect Ratio */}
               <div className="grid grid-cols-4 md:grid-cols-5 md:gap-3 gap-2 mt-4">
                 {images.map((image, index) => (
-                  <div key={index} className="relative w-full aspect-[3/2]">
+                  <div
+                    key={index}
+                    className="relative w-full"
+                    style={{ aspectRatio: "5 / 4" }}
+                  >
                     <Image
                       src={image}
                       alt={`Hình ảnh phụ ${index + 1} của ${project.title}`}
                       layout="fill"
                       objectFit="cover"
+                      quality={50}
+                      fetchpriority="high"
                       className="rounded-lg cursor-pointer"
                       onClick={() => setCurrentImage(index)}
-                      loading="lazy"
                     />
                   </div>
                 ))}
@@ -272,9 +285,10 @@ const PropertyDetail = ({ project }) => {
                         src={featuredProject.image}
                         alt={featuredProject.title}
                         width={300}
-                        height={200}
-                        className="w-full h-40 object-cover rounded-lg"
-                        loading="lazy"
+                        height={240} // Tỷ lệ 5:4 cho dự án tiêu biểu
+                        className="w-full object-cover rounded-lg"
+                        fetchpriority="high"
+                        quality={50}
                       />
                       <p className="text-gray-400 text-center mt-2">{featuredProject.title}</p>
                     </Link>

@@ -68,7 +68,7 @@ const SinglePost: NextPage<Props> = ({ post }) => {
   return (
     <DefaultLayout>
       <div className="container mx-auto px-5 py-8 md:flex md:space-x-8">
-        <div className="col-12 col-md-10 mb-4 mb-md-0">
+        <div className="flex-[3] mb-4 md:mb-0">
           <div className="md:pb-20 pb-6 container mx-auto mt-[60px] sm:mt-[91px]">
             {/* Breadcrumb */}
             <div className="flex font-semibold gap-2 text-base text-gray-600">
@@ -98,7 +98,7 @@ const SinglePost: NextPage<Props> = ({ post }) => {
         </div>
 
         {/* Related Posts Section */}
-        <div className="col-12 col-md-2 px-2 md:mt-[91px] mt-10">
+        <div className="flex-[1] md:mt-[91px] mt-10">
           <div className="pt-5">
             <p className="text-3xl font-semibold text-primary-dark dark:text-primary p-2 mb-4">
               Bài viết cùng chủ đề

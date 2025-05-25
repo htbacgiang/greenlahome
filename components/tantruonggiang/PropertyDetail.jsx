@@ -3,7 +3,7 @@ import Link from "next/link";
 import Head from "next/head";
 import { projects } from "../../components/tantruonggiang/data/projects";
 import ServiceSection from "../../components/tantruonggiang/ServiceSection";
-import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 
 const PropertyDetail = ({ project }) => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -16,8 +16,6 @@ const PropertyDetail = ({ project }) => {
   });
   const [status, setStatus] = useState("");
   const [errors, setErrors] = useState({});
-  const touchStartX = useRef(null);
-  const touchEndX = useRef(null);
 
   // Compute images early with useMemo
   const images = useMemo(
@@ -44,30 +42,6 @@ const PropertyDetail = ({ project }) => {
     if (!images) return;
     setCurrentImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   }, [images]);
-
-  const handleTouchStart = useCallback((e) => {
-    touchStartX.current = e.touches[0].clientX;
-  }, []);
-
-  const handleTouchMove = useCallback((e) => {
-    touchEndX.current = e.touches[0].clientX;
-  }, []);
-
-  const handleTouchEnd = useCallback(() => {
-    if (!touchStartX.current || !touchEndX.current) return;
-
-    const deltaX = touchEndX.current - touchStartX.current;
-    const swipeThreshold = 10;
-
-    if (deltaX > swipeThreshold) {
-      handlePrevImage();
-    } else if (deltaX < -swipeThreshold) {
-      handleNextImage();
-    }
-
-    touchStartX.current = null;
-    touchEndX.current = null;
-  }, [handlePrevImage, handleNextImage]);
 
   const validateForm = useCallback(() => {
     const newErrors = {};
@@ -175,7 +149,7 @@ const PropertyDetail = ({ project }) => {
                   </Link>{" "}
                   /{" "}
                   <Link href="/du-an">
-                    <span className="hover:text-yellow-500 cursor-pointer">Dự án</span>
+                    <span className="hover:text-yellow-500 cursor-cursor">Dự án</span>
                   </Link>{" "}
                   / {project.title}
                 </p>
@@ -216,9 +190,6 @@ const PropertyDetail = ({ project }) => {
               <div
                 className="relative mt-4"
                 style={{ aspectRatio: "5 / 3" }}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
                 role="region"
                 aria-label="Image gallery"
               >
@@ -414,7 +385,7 @@ const PropertyDetail = ({ project }) => {
           </div>
         </div>
         <ServiceSection />
-       </div>
+      </div>
     </>
   );
 };

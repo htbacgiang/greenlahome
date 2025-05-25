@@ -15,7 +15,6 @@ export default function DuAn({ meta = {} }) {
 
   const filteredProjects = projects.filter((project) => {
     if (filter === "all") return true;
-    if (filter === "biet-thu") return project.location === "Biệt thự";
     if (filter === "chung-cu") return project.location === "Chung cư";
     if (filter === "nha-pho") return project.location === "Nhà phố";
     return true;
@@ -247,17 +246,7 @@ export default function DuAn({ meta = {} }) {
             >
               Xem tất cả
             </button>
-            <button
-              onClick={() => setFilter("biet-thu")}
-              className={`pb-1 ${
-                filter === "biet-thu"
-                  ? "text-orange-500 border-b-2 border-orange-500"
-                  : "text-gray-400"
-              }`}
-              aria-label="Xem dự án biệt thự"
-            >
-              Biệt thự
-            </button>
+        
             <button
               onClick={() => setFilter("chung-cu")}
               className={`pb-1 ${

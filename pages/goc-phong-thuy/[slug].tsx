@@ -103,28 +103,36 @@ const SinglePost: NextPage<Props> = ({ post }) => {
             <p className="text-3xl font-semibold text-primary-dark dark:text-primary p-2 mb-4">
               Bài viết cùng chủ đề
             </p>
-            <div className="flex items-center flex-col space-y-4">
+            <div className="flex flex-col space-y-4">
               {relatedPosts
                 .filter((p) => p.category === category)
                 .slice(0, 5)
                 .map((p) => (
-                  <Link key={p.slug} href={`/goc-phong-thuy/${p.slug}`} legacyBehavior>
-                    <a className="flex space-x-4 font-semibold text-primary-dark dark:text-primary hover:underline w-full">
+                  <Link key={p.slug} href={`/bai-viet/${p.slug}`} legacyBehavior>
+                    <a className="flex space-x-3 items-start group">
+                      {/* Ảnh thu nhỏ */}
                       {p.thumbnail && (
                         <Image
                           src={p.thumbnail}
                           alt={p.title}
-                          width={192}
-                          height={128}
-                          className="w-48 h-32 object-cover rounded hover:scale-102 transition-all ease duration-300 md:block hidden"
+                          width={120}
+                          height={90}
+                          className="w-[120px] h-[90px] object-cover rounded-md flex-shrink-0"
                         />
                       )}
-                      <span className="flex flex-col">
-                        <span className="hidden md:block text-green-800 uppercase text-sm mb-1 underline">
-                          {p.category}
+                      {/* Tiêu đề + ngày */}
+                      <div className="flex flex-col text-sm">
+                        <span className="text-gray-800 font-medium group-hover:text-blue-700 leading-snug">
+                          {p.title}
                         </span>
-                        <span>{p.title}</span>
-                      </span>
+                        <span className="text-xs text-gray-500 mt-1 flex items-center gap-1">
+                          📅 {new Date(post.createdAt).toLocaleDateString("en-GB", {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric",
+                          })}
+                        </span>
+                      </div>
                     </a>
                   </Link>
                 ))}

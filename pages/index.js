@@ -158,41 +158,6 @@ export default function Home({ posts, meta }) {
 
   return (
     <DefaultLayout>
-      <Head>
-        <title>{safeMeta.title}</title>
-        <meta name="description" content={safeMeta.description} />
-        <meta name="keywords" content={safeMeta.keywords} />
-        <meta name="author" content={safeMeta.author} />
-        <meta name="robots" content={safeMeta.robots} />
-        <link rel="canonical" href={safeMeta.canonical} />
-        <meta property="og:title" content={safeMeta.og.title} />
-        <meta property="og:description" content={safeMeta.og.description} />
-        <meta property="og:type" content={safeMeta.og.type} />
-        <meta property="og:image" content={safeMeta.og.image} />
-        <meta property="og:image:width" content={safeMeta.og.imageWidth} />
-        <meta property="og:image:height" content={safeMeta.og.imageHeight} />
-        <meta property="og:url" content={safeMeta.og.url} />
-        <meta property="og:site_name" content={safeMeta.og.siteName} />
-        <meta property="og:locale" content={safeMeta.og.locale} />
-        <meta name="twitter:card" content={safeMeta.twitter.card} />
-        <meta name="twitter:title" content={safeMeta.twitter.title} />
-        <meta name="twitter:description" content={safeMeta.twitter.description} />
-        <meta name="twitter:image" content={safeMeta.twitter.image} />
-        <meta name="twitter:site" content={safeMeta.twitter.site} />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-        />
-      </Head>
-
       {/* Tiêu đề chính không nên ẩn, nhưng nếu thiết kế không phù hợp, có thể tích hợp vào BannerTTG */}
       <h1 className="sr-only">
         GreenLa Home - Thiết Kế & Thi Công Nội Thất Chung Cư, Nhà Phố Chuyên Nghiệp

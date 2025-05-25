@@ -59,14 +59,6 @@ export default function FAQSection() {
 
   return (
     <>
-      <Head>
-        <title>GreenLa Home - Câu Hỏi Thường Gặp</title>
-        <meta
-          name="description"
-          content="Tìm hiểu thêm về sản phẩm và dịch vụ nội thất của GreenLa Home qua các câu hỏi thường gặp."
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
       <section className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

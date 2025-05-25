@@ -34,8 +34,7 @@ export default function Header() {
     },
     { name: "Thi Công Nội Thất Trọn Gói", link: "/thi-cong-noi-that-tron-goi" },
     { name: "Dự Án", link: "/du-an" },
-    { name: "Góc phong thủy", link: "/goc-phong-thuy" },
-    { name: "Góc chuyên gia", link: "/goc-chuyen-gia" },
+    { name: "Bài viết", link: "/bai-viet" },
     { name: "Liên Hệ", link: "/lien-he" },
   ];
 
@@ -54,7 +53,7 @@ export default function Header() {
                 src="/greenlahomelogo.png"
                 alt="logo"
                 width={80}
-                height={40}
+                height={50}
                 className={`cursor-pointer py-3 md:py-1 filter brightness-0 invert transition-all duration-300 ease-in-out ${
                   scrolling ? "md:opacity-0 md:-translate-y-4 md:h-0" : "opacity-100 translate-y-0 h-auto"
                 }`}

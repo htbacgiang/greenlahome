@@ -10,10 +10,7 @@ export default function ThietKeNoiThatChungCuPage() {
       <article className="max-w-full text-base">
         <section className={`prose max-w-none ${styles.customProse}`}>
           <p>
-            Chung cư là lựa chọn nhà ở ngày càng phổ biến của các gia đình trẻ và năng động tại các thành phố lớn. Tuy nhiên, làm thế nào để biến căn hộ, đặc biệt là những căn có diện tích vừa và nhỏ, trở nên vừa đẹp mắt, tiện nghi, vừa tối ưu không gian và thể hiện được cá tính riêng của gia chủ thì không phải là điều dễ dàng.
-          </p>
-          <p>
-            Tại <strong>Greenlahome</strong>, chúng tôi thấu hiểu rằng mỗi mét vuông trong căn hộ chung cư đều quý giá. Chúng tôi không chỉ tạo ra những bản vẽ đẹp, mà còn mang đến giải pháp thiết kế nội thất chung cư toàn diện, đảm bảo đúng {"\""}gu{"\""} – đúng {"\""}công năng{"\""} – và đặc biệt là đúng {"\""}ngân sách{"\""} của bạn.
+            Chung cư ngày càng được các gia đình trẻ ở thành phố lớn ưa chuộng. Tuy nhiên, việc thiết kế căn hộ nhỏ và vừa đẹp, tiện nghi, tối ưu không gian và thể hiện cá tính gia chủ không hề đơn giản. Tại <strong>Greenlahome</strong>, chúng tôi trân trọng từng mét vuông, mang đến giải pháp thiết kế nội thất chung cư toàn diện, phù hợp sở thích, công năng và ngân sách của bạn.
           </p>
 
           <h2>1. Điểm khác biệt của Greenlahome trong thiết kế nội thất chung cư</h2>
@@ -22,7 +19,7 @@ export default function ThietKeNoiThatChungCuPage() {
           </p>
           <ul>
             <li>
-              <strong>Thiết kế nhanh chóng với Công nghệ AI:</strong> Áp dụng AI và VR360 (sẽ nói rõ hơn ở dưới) giúp đẩy nhanh tốc độ lên ý tưởng, đưa ra nhiều phương án trực quan để bạn lựa chọn chỉ trong vòng 3-7 ngày.
+              <strong>Thiết kế nhanh chóng nhờ áp dụng Công nghệ AI:</strong> Áp dụng AI và VR360 giúp đẩy nhanh tốc độ lên ý tưởng, đưa ra nhiều phương án trực quan để bạn lựa chọn chỉ trong vòng 3-7 ngày.
             </li>
             <li>
               <strong>Lắng nghe và Chỉnh sửa không giới hạn:</strong> Chúng tôi đồng hành cùng bạn, lắng nghe ý kiến và sẵn sàng chỉnh sửa phương án thiết kế cho đến khi bạn thực sự hài lòng.
@@ -31,11 +28,13 @@ export default function ThietKeNoiThatChungCuPage() {
               <strong>Cam kết Đúng Ngân sách:</strong> Thiết kế luôn bám sát ngân sách đầu tư bạn đề ra, không chi phí ẩn, không phát sinh vô lý. Mọi thứ đều minh bạch và rõ ràng.
             </li>
           </ul>
+
+          <h3>Các dự án thiết kế nội thất chung cư đã triển khai</h3>
           <div className="my-4">
             <figure className="max-w-[800px] mx-auto">
               <Image
-                src="https://res.cloudinary.com/dpyac9uvu/image/upload/v1745859522/2_pridmn.jpg"
-                alt="Thiết kế nội thất phòng ngủ master hiện đại tại chung cư bởi Greenlahome"
+                src="/images/bai-viet/1.jpg"
+                alt="Thiết kế nội thất chung cư 2 phòng ngủ cho Chị Linh tại Vinhome SmartCity"
                 width={800}
                 height={600}
                 quality={100}
@@ -45,9 +44,102 @@ export default function ThietKeNoiThatChungCuPage() {
                 priority
               />
               <figcaption className="text-center text-gray-600 text-base">
-                Thiết kế nội thất phòng ngủ Master hiện đại, tối ưu công năng sử dụng.
+                Chị Linh - Chung cư 2 Ngủ - VinhomeSmartCity
               </figcaption>
             </figure>
+            <p>
+              <Link href="/du-an/chi-linh-vin-smart-city" className="text-blue-600 hover:underline">
+                Xem chi tiết dự án Vinhome SmartCity
+              </Link>
+            </p>
+          </div>
+          <div className="my-4">
+            <figure className="max-w-[800px] mx-auto">
+              <Image
+                src="/images/bai-viet/2.jpg"
+                alt="Thiết kế nội thất chung cư 3 phòng ngủ Tân Cổ Điển cho Chị Vân tại Tây Hồ"
+                width={800}
+                height={600}
+                quality={100}
+                layout="responsive"
+                sizes="(max-width: 800px) 100vw, 800px"
+                className="rounded"
+              />
+              <figcaption className="text-center text-gray-600 text-base">
+                Chị Vân - Tây Hồ - Chung cư 3 ngủ Tân Cổ Điển
+              </figcaption>
+            </figure>
+            <p>
+              <Link href="/du-an/chi-van-tay-ho" className="text-blue-600 hover:underline">
+                Xem chi tiết dự án Chung cư Tây Hồ - Chị Vân
+              </Link>
+            </p>
+          </div>
+          <div className="my-4">
+            <figure className="max-w-[800px] mx-auto">
+              <Image
+                src="/images/bai-viet/3.jpg"
+                alt="Thiết kế nội thất chung cư 2 phòng ngủ cho Anh Quân tại Thăng Long NumberOne"
+                width={800}
+                height={600}
+                quality={100}
+                layout="responsive"
+                sizes="(max-width: 800px) 100vw, 800px"
+                className="rounded"
+              />
+              <figcaption className="text-center text-gray-600 text-base">
+                Anh Quân - Chung cư 2 ngủ - Thăng Long NumberOne
+              </figcaption>
+            </figure>
+            <p>
+              <Link href="/du-an/thang-long-number-one" className="text-blue-600 hover:underline">
+                Xem chi tiết dự án Thăng Long Number One
+              </Link>
+            </p>
+          </div>
+          <div className="my-4">
+            <figure className="max-w-[800px] mx-auto">
+              <Image
+                src="/images/bai-viet/4.jpg"
+                alt="Thiết kế nội thất chung cư cho Anh Minh tại The K Park Văn Phú"
+                width={800}
+                height={600}
+                quality={100}
+                layout="responsive"
+                sizes="(max-width: 800px) 100vw, 800px"
+                className="rounded"
+              />
+              <figcaption className="text-center text-gray-600 text-base">
+                Anh Minh - The K Park Văn Phú
+              </figcaption>
+            </figure>
+            <p>
+              <Link href="/du-an/anh-minh-the-k-park" className="text-blue-600 hover:underline">
+                Xem chi tiết dự án The K Park Văn Phú
+              </Link>
+            </p>
+          </div>
+          <div className="my-4">
+            <figure className="max-w-[800px] mx-auto">
+              <Image
+                src="/images/bai-viet/5.jpg"
+                alt="Thiết kế nội thất chung cư 2 phòng ngủ cho Chị Hà tại NewSkyline Văn Quán"
+                width={800}
+                height={600}
+                quality={100}
+                layout="responsive"
+                sizes="(max-width: 800px) 100vw, 800px"
+                className="rounded"
+              />
+              <figcaption className="text-center text-gray-600 text-base">
+                Chị Hà - Chung cư 2 ngủ - NewSkyline Văn Quán
+              </figcaption>
+            </figure>
+            <p>
+              <Link href="/du-an/chi-ha-cc-newskyline-van-quan" className="text-blue-600 hover:underline">
+                Xem chi tiết dự án NewSkyline Văn Quán
+              </Link>
+            </p>
           </div>
 
           <h2>2. Tại sao nên thiết kế nội thất chung cư bài bản thay vì làm theo cảm tính?</h2>
@@ -107,15 +199,21 @@ export default function ThietKeNoiThatChungCuPage() {
           </p>
           <div className={styles.view3DContainer}>
             <View3D />
+            <p className="text-center text-gray-600 text-base">
+              Trải nghiệm công nghệ thực tế ảo 720 tại đây
+            </p>
           </div>
+
           <h2>4. Các phong cách thiết kế nội thất chung cư hiện đại phổ biến 2025</h2>
           <p>Lựa chọn phong cách phù hợp sẽ giúp căn hộ của bạn đẹp và đúng {"\""}chất{"\""} hơn. Dưới đây là 3 phong cách rất được ưa chuộng:</p>
 
           <h3>4.1 Phong cách Hiện đại – Tối giản (Modernism/Minimalism): Lựa chọn {"\""}quốc dân{"\""}</h3>
-          <div className="my-4">
+          <div className="my-4
+
+">
             <figure className="max-w-[800px] mx-auto">
               <Image
-                src="https://res.cloudinary.com/dpyac9uvu/image/upload/v1745859523/4_s0vtz8.jpg"
+                src="/images/bai-viet/5.jpg"
                 alt="Thiết kế nội thất chung cư 2 phòng ngủ Lạc Hồng theo phong cách hiện đại tối giản"
                 width={800}
                 height={600}
@@ -314,40 +412,52 @@ export default function ThietKeNoiThatChungCuPage() {
             <li>Sử dụng các giải pháp chiếu sáng đa dạng để tạo điểm nhấn và phân chia không gian ảo.</li>
           </ul>
           <p>
-            <Link href="/du-an" className="text-blue-600 hover:underline underline">
+            <Link href="/du-an" className="text-blue-600 hover:underline">
               Xem thêm các dự án thiết kế nội thất chung cư Greenlahome đã thực hiện
             </Link>
           </p>
 
-          <h2>6. Lựa chọn chất liệu thi công nội thất chung cư thông minh và bền đẹp</h2>
-          <p>Việc chọn đúng vật liệu ảnh hưởng lớn đến độ bền, thẩm mỹ và chi phí:</p>
+          <h2>6. Lựa chọn chất liệu thi công nội thất chung cư</h2>
           <p>
-            ✔ <strong>Gỗ công nghiệp MDF lõi xanh chống ẩm:</strong> Lựa chọn phổ biến và tối ưu cho hầu hết các hạng mục tủ bếp, tủ quần áo, kệ TV, vách trang trí tại chung cư nhờ khả năng chống ẩm tốt tải và đa dạng màu sắc/vân gỗ phủ bề mặt (Melamine, Laminate, Acrylic, Sơn...).<br />
-            ✔ <strong>Ván Plywood phủ Laminate/Acrylic hoặc Nhựa Picomat/PVC:</strong> Siêu bền, chịu nước tốt, chống trầy xước cao, rất phù hợp cho các khu vực ẩm ướt như tủ bếp dưới, tủ lavabo.<br />
-            ✔ <strong>Phụ kiện chất lượng:</strong> Ưu tiên sử dụng ray ngăn kéo âm giảm chấn, bản lề hơi cho cánh tủ từ các thương hiệu uy tín (Hafele, Blum, Ivan...) để đảm bảo vận hành êm ái, bền bỉ.<br />
-            ✔ <strong>Vật liệu tạo điểm nhấn:</strong> Kính (kính cường lực, kính ốp bếp), gương trang trí (giúp không gian rộng hơn), đá nhân tạo/tự nhiên cho mặt bếp/bàn đảo, đèn LED âm tủ/cảm ứng... giúp không gian thêm hiện đại và sang trọng.
+            Một yếu tố cực kỳ quan trọng sau khi thiết kế nội thất hoàn thành là lựa chọn vật liệu. Việc lựa chọn vật liệu đúng giúp không gian của bạn trở nên thẩm mỹ, phù hợp và đúng ngân sách hơn.
           </p>
-          <p className="font-semibold">
-            📌 Lưu ý kỹ thuật quan trọng: Tủ bếp dưới nên thiết kế cách mặt sàn tối thiểu 7-10cm (thường dùng chân tăng chỉnh) để tránh ẩm mốc và dễ dàng vệ sinh sàn nhà.
+          <p>
+            Greenlahome xin giới thiệu với quý vị một số vật liệu thường được áp dụng có các phong cách thiết kế hiện nay.
           </p>
+          <h3>6.1. Gỗ công nghiệp:</h3>
+          <ul>
+            <li>Gỗ công nghiệp được chia thành rất nhiều loại: MFC, MDF, DHF, PLYGOOD… cốt thường và cốt chống ẩm. Trong số này loại thường được sử dụng nhất là gỗ MFC (Dùng cho nội thất văn phòng) và MDF chống ẩm (Dùng cho nội thất gia đình) bởi tính ổn định và giá cả phù hợp của nó.</li>
+            <li>Gỗ công nghiệp thường được phủ lên bề mặt một loại vật liệu tạo hiệu ứng màu sắc hoặc vân gỗ: Melamin, Lamilate, Acrylic, Sơn bệt… phù hợp với đa số các thiết kế nội thất hiện đại hiện nay từ hiện đại đến Tân cổ điển.</li>
+          </ul>
+          <h3>6.2. Nhựa PVC:</h3>
+          <ul>
+            <li>Trong các môi trường có độ ẩm ướt cao quý vị nên sử dụng sản phẩm nhựa PVC để chống ẩm mốc, mối mọt đảm bảo độ bền lâu dài cho sản phẩm. Ứng dụng: Tủ bếp dưới, vách ốp…</li>
+            <li>Có rất nhiều đơn vị cung cấp tấm nhựa PVC, tấm PVC cũng có thể phủ các vật liệu phủ bề mặt tương tự gỗ công nghiệp nhưng về màu sắc sẽ có đôi chút khác biệt bởi màu cốt vật liệu bên trong.</li>
+          </ul>
+          <h3>6.3. Gương và kính:</h3>
+          <ul>
+            <li>Trong các thiết kế hiện đại không thể thiếu được các mảng tường, trần, ốp gương hoặc kính. Loại vật liệu này không chỉ giúp không gian trở lên sang trọng mà còn sạch sẽ và tạo hiệu ứng chiều sâu giúp không gian trở nên rộng rãi hơn.</li>
+          </ul>
+          <h3>6.4. Phụ kiện đồ nội thất:</h3>
+          <ul>
+            <li>Để trải nghiệm trở lên hoàn hảo và tiện nghi hơn quý vị cũng nên cân nhắc sử dụng phụ kiện (Bản lề hơi, ray âm giảm chấn, phụ kiện bếp…) của các hãng uy tín như: Hafele, Blum, Bosch, Grop, Caryni…</li>
+            <li>Đèn chiếu sáng, đèn trang trí cũng là một lựa chọn gia tăng giúp không gian sống trở lên thơ mộng và nhẹ nhàng hơn rất nhiều: đèn Spotlight, đèn downlight, đèn ray âm trần…</li>
+          </ul>
 
           <h2>7. Greenlahome – Đơn vị thiết kế thi công nội thất chung cư chuyên nghiệp tại Hà Nội</h2>
-          <p>Tại sao nên chọn Greenlahome cho tổ ấm của bạn?</p>
+          <p>Tại sao nên lựa chọn thiết kế nội thất tại Greenlahome?</p>
           <ul>
             <li>
-              <strong>Kinh nghiệm dày dặn:</strong> Đã thiết kế và thi công nội thất cho hơn 200 căn hộ chung cư tại Hà Nội và các tỉnh lân cận.
+              <strong>Làm nội thất từ tâm:</strong> Chúng tôi làm việc với tâm niệm “Khách hàng là số một”. Chúng tôi luôn quan tâm và tìm cách giải quyết nỗi đau của khách hàng: Tìm đơn vị uy tín trách nhiệm, đưa ra phương án phù hợp với mức đầu tư của khách hàng mà vẫn đảm bảo tính thẩm mỹ cũng như công năng sử dụng.
             </li>
             <li>
-              <strong>Xưởng sản xuất trực tiếp:</strong> Quy trình khép kín từ thiết kế đến sản xuất tại xưởng riêng với máy móc hiện đại, đảm bảo chất lượng, tối ưu chi phí (không qua trung gian) và kiểm soát tiến độ.
+              <strong>Quy trình chuyên nghiệp:</strong> Để tiết kiệm tối đa thời gian cho quý khách hàng chúng tôi cũng thiết lập ra những quy trình làm việc linh hoạt, mang lại hiểu quả cao và chất lượng bền vững.
             </li>
             <li>
-              <strong>Tiến độ nhanh chóng:</strong> Thi công hoàn thiện nội thất chỉ từ 10 ngày (tùy diện tích và độ phức tạp), cam kết đúng tiến độ hợp đồng.
+              <strong>Minh bạch và uy tín:</strong> Trong quá trình làm việc chúng tôi luôn cam kết chất lượng, tiến độ với khách hàng bằng văn bản rõ ràng. Sản phẩm đồ nội thất do Greenlahome sản xuất được bảo hành đến 5 năm, bảo trì vĩnh viễn.
             </li>
             <li>
-              <strong>Minh bạch & Uy tín:</strong> Hợp đồng rõ ràng, chi tiết từng hạng mục, cam kết tối thiểu chi phí phát sinh ngoài dự toán.
-            </li>
-            <li>
-              <strong>Bảo hành dài hạn:</strong> Cam kết bảo hành sản phẩm lên đến 5 năm, bảo trì nhanh chóng.
+              <strong>Xưởng sản xuất trực tiếp:</strong> Với quy trình khép kín từ thiết kế đến sản xuất đồ nội thất giúp đồng bộ chất lượng, tính thẩm mỹ, tiết kiệm thời gian. Với nhà xưởng trên 500m2 và hệ thống máy móc hiện đại, chuyên môn sâu và vật liệu chất lượng chúng tôi cam kết mang đến quý khách hàng sản phẩm sau hoàn thiện không chỉ thẩm mỹ mà còn mang lại chất lượng bền vững cho sản phẩm.
             </li>
           </ul>
 

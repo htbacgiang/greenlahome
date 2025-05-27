@@ -52,7 +52,7 @@ export default function Header() {
               <Image
                 src="/greenlahomelogo.png"
                 alt="logo"
-                width={80}
+                width={120}
                 height={50}
                 className={`cursor-pointer py-3 md:py-1 filter brightness-0 invert transition-all duration-300 ease-in-out ${
                   scrolling ? "md:opacity-0 md:-translate-y-4 md:h-0" : "opacity-100 translate-y-0 h-auto"
@@ -67,7 +67,7 @@ export default function Header() {
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex justify-center w-full">
-            <ul className="flex flex-wrap justify-center space-x-2 md:space-x-4 text-sm md:text-base uppercase font-semibold py-1 md:py-2">
+            <ul className="flex flex-wrap justify-center space-x-2 md:space-x-4 text-sm md:text-base uppercase font-semibold py-1">
               {menuItems.map((item, index) => (
                 <li key={index} className="relative group">
                   {item.name === "Thiết Kế Nội Thất" ? (

@@ -224,7 +224,7 @@ export default function Home({ posts, meta }) {
 
 export async function getServerSideProps() {
   try {
-    const posts = await readPostsFromDb(8, 0);
+    const posts = await readPostsFromDb(6, 0);
     const formattedPosts = formatPosts(posts);
 
     // Meta data tối ưu cho GreenLa Home

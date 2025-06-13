@@ -89,9 +89,7 @@ const PostCard: FC<Props> = ({
           )}
         </div>
         <div className="p-4 flex flex-col space-y-2">
-          <span className="category-tag p-2 cursor-pointer text-green-800 text-lg bg-green-500 hover:bg-green-400 hover:text-white">
-            {category || "Uncategorized"}
-          </span>
+          
           <Link href={postPath}>
             <h2 className="text-xl font-bold text-white">{highlightedTitle}</h2>
           </Link>
